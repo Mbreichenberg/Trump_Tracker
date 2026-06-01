@@ -675,10 +675,13 @@ a { color: inherit; }
   border: 1px solid var(--border);
   border-radius: 8px;
   max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .compare-item {
   text-align: center;
+  min-width: 0;
 }
 
 .compare-item-label {
@@ -692,9 +695,10 @@ a { color: inherit; }
 
 .compare-item-value {
   font-family: var(--font-mono);
-  font-size: 32px;
+  font-size: clamp(20px, 5vw, 32px);
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .compare-item-value.negative { color: var(--red); }
@@ -951,9 +955,18 @@ a { color: inherit; }
 @media (max-width: 640px) {
   .hero { padding: 48px 16px 40px; }
   .counter-block { min-width: 0; width: 100%; padding: 24px; }
-  .counter-number { font-size: 48px; letter-spacing: -1px; }
+  .counter-number { font-size: 44px; letter-spacing: -1px; word-break: break-word; }
   .policy-grid { grid-template-columns: 1fr; padding: 16px; }
   .cat-nav { padding: 12px 16px; }
   .term1-section { padding: 16px; }
   .term1-compare-bar { flex-direction: column; gap: 16px; }
+
+  .comparison-bar { gap: 14px; padding: 16px 12px; }
+  .compare-divider { font-size: 18px; }
+  .compare-item-label { font-size: 10px; letter-spacing: 0.05em; }
+  .compare-item-sub { font-size: 11px; }
+
+  .admin-switcher { gap: 6px; }
+  .admin-tab { min-width: 0; flex: 1 1 42%; padding: 8px 10px; }
+  .admin-tab-label { font-size: 13px; }
 }
